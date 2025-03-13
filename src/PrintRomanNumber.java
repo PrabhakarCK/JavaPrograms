@@ -1,13 +1,29 @@
-
+import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
 public class PrintRomanNumber {
 
-    private final static TreeMap<Integer, String> map = new TreeMap<Integer, String>();
 
-    static {
+    public static String toRoman(int number) {
+        TreeMap<Integer, String> map = getTreeMap();
+        int l = map.floorKey(number);
+        if (number == l) {
+            return map.get(number);
+        }
+        return map.get(l) + toRoman(number - l);
+    }
 
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = input.nextInt();
+        System.out.println(number + " -> " + "\"" + PrintRomanNumber.toRoman(number) + "\"");
+    }
+
+    private static TreeMap<Integer, String> getTreeMap() {
+        TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1000, "M");
         map.put(900, "CM");
         map.put(500, "D");
@@ -21,24 +37,6 @@ public class PrintRomanNumber {
         map.put(5, "V");
         map.put(4, "IV");
         map.put(1, "I");
-
+        return map;
     }
-
-    public final static String toRoman(int number) {
-        int l = map.floorKey(number);
-        if (number == l) {
-            return map.get(number);
-        }
-        return map.get(l) + toRoman(number - l);
-    }
-
-    public static void main(String args[]) {
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Enter an integer: ");
-        int number = input.nextInt();
-        System.out.println(number + "->" + "\"" + PrintRomanNumber.toRoman(number) + "\"");
-    }
-
 }
