@@ -25,7 +25,6 @@ public class SubsetSum {
                 return true;
             }
             i++;
-
             while (sum > target) {
                 sum -= arr[j];
                 j++;
