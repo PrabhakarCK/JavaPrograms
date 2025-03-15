@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class JavaCollectionsExample {
+public class JavaSortExample {
     public static void main(String[] args) {
         List<String> list = Arrays.asList("Aaaa", "Bbb", "Cc", "Z", "D");
         //1. Sort Ascending order
@@ -36,5 +36,6 @@ public class JavaCollectionsExample {
         System.out.println("Before Swap elements at specified indices" + list);
         Collections.swap(list, 2, list.size() - 1);
         System.out.println("After Swap elements at specified indices" + list);
+
     }
 }

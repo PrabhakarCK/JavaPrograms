@@ -3,9 +3,6 @@ import java.util.stream.Collectors;
 
 public class RemoveDuplicateAndThirdLargestAndFrequency {
 
-    // 1) Removes duplicates while maintaining the original order.
-// 2) Finds the third-largest unique number in the array.
-
     public static void main(String[] args) {
         int[] numbers = {4, 5, 6, 7, 8, 5, 6, 4, 7, 7, 8, 8, 8, 2, 3, 3, 3};
 
@@ -16,11 +13,13 @@ public class RemoveDuplicateAndThirdLargestAndFrequency {
         findTheFrequency(numbers);
     }
 
+    // 1) Removes duplicates while maintaining the original order.
     private static void removeDuplicate(int[] numbers) {
         List<Integer> list = Arrays.stream(numbers).boxed().distinct().toList();
         System.out.println("Remove Duplicate" + list);
     }
 
+    // 2) Finds the third-largest unique number in the array.
     private static void findThirdLargestUniqueNumber(int[] numbers) {
         Set<Integer> set = Arrays.stream(numbers).boxed().collect(Collectors.toSet());
         List<Integer> list = set.stream().toList();
